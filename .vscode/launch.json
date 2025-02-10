@@ -1,0 +1,48 @@
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//       {
+//           "name": "Debug C Program",
+//           "type": "lldb",                     // Use LLDB
+//           "request": "launch",
+//           "program": "${workspaceFolder}/main", // Path to your executable
+//           "args": [],
+//           "cwd": "${workspaceFolder}",
+//           "console": "externalTerminal",      // Use an external terminal for interactive input (e.g., scanf)
+//           "stopOnEntry": false
+//       }
+//   ]
+// }
+
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//       {
+//           "name": "Debug CMake Target",
+//           "type": "lldb",                           // Use "lldb" for CodeLLDB (or "cppdbg" for GDB, but LLDB is preferred on macOS)
+//           "request": "launch",
+//           "program": "${command:cmake.launchTargetPath}",  // Automatically sets the target executable path
+//           "args": [],
+//           "cwd": "${workspaceFolder}",
+//           "console": "externalTerminal",            // Use an external terminal for interactive input
+//           "stopOnEntry": false
+//       }
+//   ]
+// }
+{
+  "configurations": [
+    
+    {
+      "name": "Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": true, // Use external terminal
+      "MIMode": "lldb"
+    }
+  ]
+}

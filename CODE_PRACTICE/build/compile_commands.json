@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/sachinroy/WorkSpace/JobHunt/CODE_PRACTICE/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin24-gcc-14   -g -std=gnu11 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -o CMakeFiles/main.dir/src/main.c.o -c /Users/sachinroy/WorkSpace/JobHunt/CODE_PRACTICE/Exercise/src/main.c",
+  "file": "/Users/sachinroy/WorkSpace/JobHunt/CODE_PRACTICE/Exercise/src/main.c",
+  "output": "CMakeFiles/main.dir/src/main.c.o"
+}
+]

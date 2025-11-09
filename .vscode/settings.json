@@ -7,5 +7,6 @@
         "stdio.h": "c",
         "bitset": "c",
         "unordered_map": "c"
-    }
+    },
+    "idf.pythonInstallPath": "/usr/bin/python3"
 }

@@ -1,3 +1,11 @@
 {
-    "cmake.sourceDirectory": "/Users/sachinroy/WorkSpace/JobHunt/CODE_PRACTICE/Exercise"
+    "cmake.configureOnOpen": false,
+    "cmake.buildBeforeRun": false,
+    "cmake.autoSelectActiveFolder": false,
+    "cmake.autoSelectActiveKit": false,
+    "files.associations": {
+        "stdio.h": "c",
+        "bitset": "c",
+        "unordered_map": "c"
+    }
 }

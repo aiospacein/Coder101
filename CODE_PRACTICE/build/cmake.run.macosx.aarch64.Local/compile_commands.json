@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/build/cmake.run.macosx.aarch64.Local",
+  "command": "/usr/bin/cc -I/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/Exercise/src -O3 -DNDEBUG -std=gnu11 -arch arm64 -O2 -o Exercise/CMakeFiles/exercise_main.dir/src/main.c.o -c /Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/Exercise/src/main.c",
+  "file": "/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/Exercise/src/main.c",
+  "output": "/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/build/cmake.run.macosx.aarch64.Local/Exercise/CMakeFiles/exercise_main.dir/src/main.c.o"
+}
+]

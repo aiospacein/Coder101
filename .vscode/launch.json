@@ -1,39 +1,69 @@
-// {
-//   "version": "0.2.0",
-//   "configurations": [
-//       {
-//           "name": "Debug C Program",
-//           "type": "lldb",                     // Use LLDB
-//           "request": "launch",
-//           "program": "${workspaceFolder}/main", // Path to your executable
-//           "args": [],
-//           "cwd": "${workspaceFolder}",
-//           "console": "externalTerminal",      // Use an external terminal for interactive input (e.g., scanf)
-//           "stopOnEntry": false
-//       }
-//   ]
-// }
-
-// {
-//   "version": "0.2.0",
-//   "configurations": [
-//       {
-//           "name": "Debug CMake Target",
-//           "type": "lldb",                           // Use "lldb" for CodeLLDB (or "cppdbg" for GDB, but LLDB is preferred on macOS)
-//           "request": "launch",
-//           "program": "${command:cmake.launchTargetPath}",  // Automatically sets the target executable path
-//           "args": [],
-//           "cwd": "${workspaceFolder}",
-//           "console": "externalTerminal",            // Use an external terminal for interactive input
-//           "stopOnEntry": false
-//       }
-//   ]
-// }
 {
+  "version": "0.2.0",
   "configurations": [
-    
     {
-      "name": "Launch",
+      "name": "Debug C Program (External Console)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/CODE_PRACTICE/Exercise/build/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/CODE_PRACTICE/Exercise",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "lldb",
+      "preLaunchTask": "build-main",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Debug C Program (Internal Terminal)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/CODE_PRACTICE/Exercise/build/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/CODE_PRACTICE/Exercise",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "make-debug",
+      "console": "integratedTerminal",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Debug with Makefile",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/CODE_PRACTICE/Exercise/build/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/CODE_PRACTICE/Exercise",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "lldb",
+      "preLaunchTask": "make-debug",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Debug Current File",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}/${fileBasenameNoExtension}",
@@ -41,8 +71,23 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": true, // Use external terminal
-      "MIMode": "lldb"
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "C/C++: clang build active file",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Simple Debug (No CMake)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/CODE_PRACTICE/Exercise/build/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/CODE_PRACTICE/Exercise",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "lldb",
+      "preLaunchTask": "make-debug"
     }
   ]
 }

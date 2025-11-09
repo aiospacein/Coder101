@@ -1,1 +1,0 @@
-/opt/homebrew/bin/aarch64-apple-darwin24-gcc-14 -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/main.dir/src/main.c.o -o main

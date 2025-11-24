@@ -33,7 +33,7 @@
       "externalConsole": false,
       "MIMode": "lldb",
       "preLaunchTask": "make-debug",
-      "console": "integratedTerminal",
+      // "console": "integratedTerminal",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -43,16 +43,17 @@
       ]
     },
     {
-      "name": "Debug with Makefile",
+"name": "Debug with Makefile (GDB)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/CODE_PRACTICE/Exercise/build/main",
+      "program": "${workspaceFolder}/build/all",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/CODE_PRACTICE/Exercise",
+      "cwd": "${workspaceFolder}/src/TCPL",
       "environment": [],
       "externalConsole": true,
-      "MIMode": "lldb",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
       "preLaunchTask": "make-debug",
       "setupCommands": [
         {
@@ -61,6 +62,7 @@
           "ignoreFailures": true
         }
       ]
+      
     },
     {
       "name": "Debug Current File",
@@ -71,10 +73,10 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": false,
+      "externalConsole": true,
       "MIMode": "lldb",
       "preLaunchTask": "C/C++: clang build active file",
-      "console": "integratedTerminal"
+      // "console": "integratedTerminal"
     },
     {
       "name": "Simple Debug (No CMake)",

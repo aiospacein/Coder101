@@ -1,0 +1,12 @@
+/*
+Exercise 7-1. Write a program that converts upper case to lower or lower case to upper,
+depending on the name it is invoked with, as found in argv[0].
+Exercise 7-2. Write a program that will print arbitrary input in a sensible way. As a minimum,
+it should print non-graphic characters in octal or hexadecimal according to local custom, and
+break long text lines.
+Exercise 7-3. Revise minprintf to handle more of the other facilities of printf.
+Exercise 7-4. Write a private version of scanf analogous to minprintf from the previous
+section.
+Exercise 5-5. Rewrite the postfix calculator of Chapter 4 to use scanf and/or sscanf to do
+the input and number conversion.
+*/

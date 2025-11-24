@@ -11,6 +11,7 @@ Write your code in this editor and press "Run" button to compile and execute it.
 #include <stdbool.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
 // Q 1. )Check if the ith bit is set or not
 bool IsIthBitSet(uint32_t In, uint8_t BitPos)
@@ -241,35 +242,176 @@ void FileReadWrite(void)
 
 }
 
+//////////////////////////LINK LIST /////////////////////
+struct LinkList {
+	int data;
+	struct LinkList* NextNode;
+}LinkList;
 
+void PrintLinkList(struct LinkList *List)
+{
+	int count = 0;
+	while (List!= NULL) {
+		/* code */
+		count++;
+		printf("Data is:%d and Element is:%d\n", List->data, count);
+		List = List->NextNode;
+	}
+}
+
+void add(int data, struct LinkList *List)
+{
+    while (List->NextNode != NULL)
+    {
+        /* code */
+		List = List->NextNode;
+	}
+
+	struct LinkList* ListElem = malloc(sizeof(LinkList));
+	ListElem->data = data;
+	ListElem->NextNode = NULL;
+	List->NextNode = ListElem;
+}
+
+void DelElement(int key,struct LinkList * List)
+{
+	struct LinkList *temp;
+	while (List->data != key) {
+		/* code */
+		temp = List;
+		List = List->NextNode;
+	}
+
+    if (List->data != key && List->NextNode == NULL)
+    {
+        /* code */
+		printf("Key not found");
+		// return 0;
+	}
+
+	temp->NextNode = List->NextNode;
+
+
+}
+// struct LinkList *List = malloc(sizeof(LinkList));
+// List->data = 2;
+// List->NextNode = NULL;
+
+// // PrintLinkList(List);
+// add(55, List);
+// add(5, List);
+// add(7, List);
+// add(8, List);
+
+// PrintLinkList(List);
+
+// DelElement(5, &List);
+
+// printf("Deleting element 5\n");
+// PrintLinkList(List);
 /////////////////////////////////////////////////////////////////////
+//SOrting
+void Sort(int *arr)
+{
+	int count = 10;
+	for (size_t i = 0; i < count-1; i++) {
+		/* code */
+        for (size_t j = 0; j < count-1; j++)
+        {
+            /* code */
+            if (arr[j] > arr[j+1])
+            {
+                /* code */
+                int temp = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = temp;
+            }
+		}
+	}
+}
+
+// int arr[10] = {1, 3, 6, 3, 9, 3, 45, 63, 232, 9};
+
+// for (size_t i = 0; i < 10; i++) {
+// 	/* code */
+// 	printf("%d\n", arr[i]);
+// }
+
+// Sort(arr);
+
+// for (size_t i = 0; i < 10; i++) {
+// 	/* code */
+// 	printf("%d\n", arr[i]);
+// }
+#define BUFFSIZE 10
+////////Ring Buffer/////////////////
+typedef struct RingBuffer{
+	uint8_t *buff;
+	uint8_t head;
+	uint8_t tail;
+	// uint8_t count;
+	bool full;
+	// uint8_t size;
+} RingBuffer;
+
+typedef RingBuffer *RbuffHandler;
+
+void RbuffInit(RingBuffer *Rbuffp, uint8_t *buff, uint8_t size) {
+	RingBuffer *RbuffPtr = malloc(sizeof(RingBuffer));
+	// assert(RingBuffer);
+
+	RbuffPtr->buff = buff;
+	RbuffPtr->head = 0;
+	RbuffPtr->tail = 0;
+	RbuffPtr->size = size;
+}
+
+void pushData( RingBuffer * Rbuff, uint16_t data)
+{
+    if (Rbuff->tail == Rbuff->head)
+    {
+        /* code */
+		printf("R Buffer is full\n");
+	}
+    else
+    {
+        /* code */
+		Rbuff->buff[Rbuff->tail] = data;
+		Rbuff->tail++;
+	}
+    	
+}
+
+void popData( RingBuffer *Rbuff, uint16_t *data)
+{
+	*data = Rbuff->buff[Rbuff->head] ;
+	Rbuff->head++;
+}
+
+void printData(RingBuffer *Rbuff)
+{
+    while (condition)
+    {
+        /* code */
+    }
+    
+}
+
+// void update
+
+
+
 ////////============////////////////
 #include <stdio.h>
 
-int main()
-{
+int main() {
 
-    int age = 16;
-    char firstInitial;
-    char name[30];
+	RingBuffer Rbuff = malloc(sizeof(RingBuffer));
+	*Rbuff->buff = NULL;
+	Rbuff->tail = 0;
+	Rbuff->head = 0;
 
-    // // Reading an integer leaves a newline character in the buffer
-    // printf("Enter your age: ");
-    // scanf("%d", &age);
+	pushData(Rbuff, 34);
 
-    // Using " %c" to read the next non-whitespace character (first initial)
-    // printf("Enter your first initial: ");
-    // scanf(" %c", &firstInitial);
-
-    // Reading a single word (first name)
-    printf("Enter your first name: ");
-    // fflush(stdout);  // Force output to appear immediately
-    scanf("%s", name);
-
-    // printf("\nAge: %d\n", age);
-     printf("Initial: %s\n", name);
-    // printf("Result is %B \n", NoOfOnesCount(age));
-    // FileReadWrite();
-
-    return 0;
+	return 0;
 }

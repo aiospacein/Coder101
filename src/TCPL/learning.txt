@@ -1,0 +1,129 @@
+To solve question:
+1) read the statement
+2) devide into methoods or function ignore the details
+    Task #	Sub-task
+1	Read a full line from input
+2	Remove trailing blanks/tabs from that line
+3	If resulting line is empty → skip printing
+4	Print cleaned line
+
+Now you have the structure of the program mentally.
+Think about corner cases
+🌟 General Step-by-Step Approach
+
+Whenever you read a problem:
+
+1️⃣ Understand EXACTLY what the problem is asking
+
+Do not think about code immediately.
+
+Ask yourself:
+
+What is the input?
+
+What is the expected output?
+
+What transformation is needed?
+
+📌 Example (Exercise 1-18):
+
+Remove trailing blanks/tabs from each line and delete empty lines.
+
+So:
+
+Input = multiple lines with possibly extra spaces/tabs
+
+Output = cleaned lines
+
+2️⃣ Identify the core tasks
+
+Break the problem into small logical subtasks.
+
+For Exercise 1-18:
+
+Task #	Sub-task
+1	Read a full line from input
+2	Remove trailing blanks/tabs from that line
+3	If resulting line is empty → skip printing
+4	Print cleaned line
+
+Now you have the structure of the program mentally.
+
+3️⃣ Think about corner cases
+
+Many candidates fail because they ignore these.
+
+Examples:
+
+A line that contains only spaces
+
+A line that has no trailing spaces
+
+A very long line that exceeds buffer
+
+A line not ending with newline before EOF
+
+Considering these avoids bugs later.
+
+4️⃣ Plan functions / flow
+
+Decide whether to use multiple functions or single function.
+
+Reasonable split:
+
+getline_custom() → input handling
+
+remove_trailing() → whitespace cleanup
+
+This separation simplifies logic.
+
+5️⃣ THEN think about coding
+
+🧠 Mental template for solving ANY problem
+
+Whenever you see a new problem, fill this:
+
+Step	Questions to ask yourself
+Problem	What exactly is asked?
+Input	What data do I get?
+Output	What data should I produce?
+Rules	What constraints?
+Sub-tasks	What steps to reach output?
+Edge Cases	What special cases can break code?
+
+Write this mentally or on paper — it makes solution obvious.
+
+⭐ Bonus: Apply to Exercise 1-16 (Longest line)
+
+What is problem?
+
+Read input lines
+
+Print the longest one and its length
+
+Subtasks:
+
+Read line
+
+Measure length of the line
+
+Compare with max length
+
+Store the longest
+
+Print result
+
+Edge cases:
+
+Multiple longest lines same length
+
+Very long line > buffer
+
+Input ends without newline
+
+→ Now the program practically writes itself.
+
+🔑 Final takeaway
+
+Do NOT try to “think in code”, think in logic and tasks.
+Code is only the final translation.

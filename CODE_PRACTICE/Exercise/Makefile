@@ -42,12 +42,7 @@ run: $(TARGET)
 clean:
 	rm -rf $(BUILDDIR)
 	@echo "Cleaned build files"
-
-# Clean everything including source directory executables
-clean-all: clean
-	rm -f $(SRCDIR)/main $(SRCDIR)/*.o $(SRCDIR)/*.dSYM
-	@echo "Cleaned all files"
-
+	
 # Debug build
 debug: CFLAGS += -DDEBUG -O0
 debug: $(TARGET)

@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <limits.h>
 // #define EX_1_1
 // #define EX_1_2
 // #define EX_1_3
@@ -478,83 +480,370 @@ detab
 
 */
 
-#define MAXLEN 100
-#define TABLEN 4
-int readline(char *buff)
-{
-    int c, len = 0;
+// #define MAXLEN 100
+// #define TABLEN 4
+// int readline(char *buff)
+// {
+//     int c, len = 0;
 
-    while ((len < MAXLEN - 1) && (c = getchar()) != EOF && (c != '\n'))
-    {
-        /* code */
-        buff[len++] = c;
-    }
-    buff[len] = '\0';
-    return len;
-}
+//     while ((len < MAXLEN - 1) && (c = getchar()) != EOF && (c != '\n'))
+//     {
+//         /* code */
+//         buff[len++] = c;
+//     }
+//     buff[len] = '\0';
+//     return len;
+// }
 
-//
-void detab(char *buff, int len)
-{
-    int i =0, col = 0;
-    while (buff[col] != '\0')
-    {
-        /* code */
-        if (buff[col] == '\t')
-        {
-            /* code */
-            int space = TABLEN - ( i % TABLEN);
+// //
+// void detab(char *buff, int len)
+// {
+//     int i =0, col = 0;
+//     while (buff[col] != '\0')
+//     {
+//         /* code */
+//         if (buff[col] == '\t')
+//         {
+//             /* code */
+//             int space = TABLEN - ( i % TABLEN);
 
-            while (space-- > 0)
-            {
-                /* code */
-                putchar(' ');
-                i++;
-            }
-        }
-        else
-        {
-            /* code */
-            putchar(buff[col]);
-            i++;
-            if (buff[i] == '\n') // ADDED
-                i = 0;         // ADDED
-        }
+//             while (space-- > 0)
+//             {
+//                 /* code */
+//                 putchar(' ');
+//                 i++;
+//             }
+//         }
+//         else
+//         {
+//             /* code */
+//             putchar(buff[col]);
+//             i++;
+//             if (buff[i] == '\n') // ADDED
+//                 i = 0;         // ADDED
+//         }
 
-        col++;
-    }
-}
+//         col++;
+//     }
+// }
 
-int main()
-{
-    char buff[MAXLEN] = {0};
-    int len = 0;
-    while ((len = readline(buff)) > 0)
-    {
-        /* code */
-        detab(buff, len);
-        // printf("%s\n", buff);
-    }
-}
+// int main()
+// {
+//     char buff[MAXLEN] = {0};
+//     int len = 0;
+//     while ((len = readline(buff)) > 0)
+//     {
+//         /* code */
+//         detab(buff, len);
+//         // printf("%s\n", buff);
+//     }
+// }
 /*Exercise 1-21. Write a program entab that replaces strings of blanks by the minimum number
 of tabs and blanks to achieve the same spacing. Use the same tab stops as for detab. When
 either a tab or a single blank would suffice to reach a tab stop, which should be given
 preference?
-
+entab:
+if blanks more than TABLEN update to tab else balanks
 */
+// #define TABLEN 4
+// #define MAXBUF 100
 
+// int readline(char a[])
+// {
+//     int len = 0;
+//     char c;
+//     while ((len < MAXBUF - 1) && ((c = getchar()) != EOF) && (c != '\n'))
+//     {
+//         /* code */
+//         a[len++] = c;
+//     }
+//     a[len] = '\0';
+//     return len;
+// }
+
+// void entab(char *buff)
+// {
+//     int count = 0, i = 0;
+//     char c;
+//     while ((c = *(buff + i)) != '\0')
+//     {
+//         /* code */
+//         if (c == ' ')
+//         {
+//             count++;
+//             i++;
+//         }
+//         else if(count)
+//         {
+//             // 3 cases: 1) blanks before tab;2) no of tabs:3)pemding blanks
+//             int start = i - count;
+
+//             while (start%TABLEN)
+//             {
+//                 /* code */
+//                 putchar(' ');
+//                 start++;
+//                 count--;
+//             }
+
+//             while (count >= TABLEN)
+//             {
+//                 /* code */
+//                 putchar('\t');
+
+//                 start += TABLEN;
+//                 count -= TABLEN;
+//             }
+
+//             while (count>0)
+//             {
+//                 /* code */
+//                 putchar(' ');
+//                 count--;
+//             }
+//                 }
+//         else
+//         {
+//             putchar(c);
+//             i++;
+//         }
+//     }
+//     putchar('\n');
+// }
+
+// int main()
+// {
+//     char buff[MAXBUF] = {0};
+//     int len = 0;
+
+//     while ((len = readline(buff)) > 0)
+//         entab(buff);
+// }
 /*Exercise 1-22. Write a program to ``fold'' long input lines into two or more shorter lines after
-the last non-blank character that occurs before the n-th column of input. Make sure your
+the last non-blank character that occurs before the n-th column of input.
+Make sure your
 program does something intelligent with very long lines, and if there are no blanks or tabs
 before the specified column.
-
+//Signle Fucntion: Output putchar
+EDGE CASE:
+if last col is inside the word then add this word into next line
 */
+// #define MAXBUF 10
 
-/*Exercise 1-23. Write a program to remove all comments from a C program. Don't forget to
-handle quoted strings and character constants properly. C comments don't nest.
-*/
+// int readlinefixlen(char a[])
+// {
+//     int len = 0;
+//     char c;
+//     static char lastword[10] = {'\0'};
+//     int lidx = 0;
+//     while (lastword[lidx] != '\0')
+//         lidx++;
+
+//     while (lidx > 0)
+//     {
+//         /* code */
+//         a[len++] = lastword[--lidx];
+//     }
+//     lastword[0] = '\0';
+
+//     while (((c = getchar()) != EOF) && (c != '\n'))
+//     {
+//         /* code */
+//         a[len++] = c;
+
+//         if ((len == MAXBUF - 1))
+//         {
+//             /* code */
+//             int idx = len - 1;
+//             char c = '\0';
+//             while (((c = a[idx]) != ' ') && (c != '\t') && (idx >= 0))
+//             {
+//                 /* code */
+//                 lastword[(len - 1) - idx] = c;
+//                 idx--;
+//             }
+//             lastword[(len - 1) - idx] = '\0';
+//             len = len - idx + 1;
+//             break;
+//         }
+//     }
+//     a[len] = '\0';
+//     return len;
+// }
+
+// int main()
+// {
+//     char buff[MAXBUF] = {0};
+//     int len = 0;
+
+//     while ((len = readlinefixlen(buff)) > 0)
+//         printf("%s\n", buff);
+// }
+
+/*Exercise 1-23. Write a program to remove all comments from a C program.
+Don't forget to handle quoted strings and character constants properly.
+C comments don't nest.
+Read each char
+check for  or // (ignore if inside string and char: chekc for opening and closing "" and '')
+if // ignore till next line
+if  ignore till */
+/* if found * d / // first print invalid comment*/
+
+enum
+{
+    SBLOCKCMT = 0,
+    SLINECMT,
+    SDQUOTE,
+    SSQUOTE,
+};
+
+int RemoveComments(FILE *fp)
+{
+    FILE *fptmp = fopen("../temp.c", "w+");
+
+    if (!fptmp)
+    {
+        /* code */
+        printf("Cant Open Temp File\n");
+        return -1;
+    }
+
+    int c = 0;
+    char spclchar[3] = {0};
+    char lastchar = '\0';
+    while ((c = getc(fp)) != EOF)
+    {
+        switch ((char)c)
+        {
+        case '/':
+            if ((spclchar[SDQUOTE] == 0) && (spclchar[SSQUOTE] == 0))
+            {
+                if ((spclchar[SBLOCKCMT] == 0))
+                {
+                    /* code */
+                    if (lastchar == c)
+                    {
+                        /* code */
+                        spclchar[SLINECMT] = 1;
+                    }
+                }
+                else if ((lastchar == '*') && (spclchar[SBLOCKCMT] == 1))
+                {
+                    /* code */
+                    spclchar[SBLOCKCMT] = 0;
+                }
+            }
+            else
+            {
+                /* code */
+                putc(c, fptmp);
+            }
+
+            break;
+        case '*':
+            if ((spclchar[SDQUOTE] == 0) && (spclchar[SSQUOTE] == 0))
+            {
+                if (lastchar == '/')
+                {
+                    /* code */
+                    spclchar[SBLOCKCMT] = 1;
+                }
+            }
+            else
+            {
+                /* code */
+                putc(c, fptmp);
+            }
+
+            break;
+        case '"':
+            if ((spclchar[SLINECMT] == 0) && (spclchar[SBLOCKCMT] == 0))
+            {
+                /* code */
+                if (spclchar[SDQUOTE] == 0)
+                {
+                    /* code */
+                    spclchar[SDQUOTE] = 1;
+                }
+                else
+                {
+                    if (lastchar != '\\')
+                    {
+                        /* code */
+                        spclchar[SDQUOTE] = 0;
+                    }
+                }
+                putc(c, fptmp);
+            }
+            break;
+        case '\n':
+            if (spclchar[SLINECMT])
+            {
+                /* code */
+                spclchar[SLINECMT] = 0;
+            }
+            if (spclchar[SBLOCKCMT] == 0)
+            {
+                /* code */
+                putc(c, fptmp);
+            }
+
+            break;
+        case '\'':
+            if ((spclchar[SLINECMT] == 0) && (spclchar[SBLOCKCMT] == 0))
+            {
+                /* code */
+                if (spclchar[SSQUOTE] == 0)
+                {
+                    /* code */
+                    spclchar[SSQUOTE] = 1;
+                }
+                else
+                {
+                    if (lastchar != '\'')
+                    {
+                        /* code */
+                        spclchar[SSQUOTE] = 0;
+                    }
+                }
+                putc(c, fptmp);
+            }
+            break;
+        default:
+            if (((spclchar[SLINECMT] == 0) && (spclchar[SBLOCKCMT] == 0)))
+            {
+                /* code */
+                putc(c, fptmp);
+            }
+
+            break;
+        }
+        lastchar = c;
+    }
+    fclose(fptmp);
+    return 0;
+}
+
+// int main()
+// {
+
+//     char cwd[500];
+//     getcwd(cwd, sizeof(cwd));
+//     printf("Current working directory = %s\n", cwd);
+//     FILE *fp = fopen("../test.c", "r+");
+//     if (!fp)
+//     {
+//         /* code */
+//         printf("file not found/opended\n");
+//     }
+//     else
+//     {
+//         RemoveComments(fp);
+//     }
+// }
 
 /*Exercise 1-24. Write a program to check a C program for rudimentary syntax errors like
 unmatched parentheses, brackets and braces. Don't forget about quotes, both single and
 double, escape sequences, and comments. (This program is hard if you do it in full generality.)
+
 */

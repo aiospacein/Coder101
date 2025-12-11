@@ -1,7 +1,0 @@
-# ninja log v7
-0	32	1761021795813619286	Exercise/CMakeFiles/exercise_main.dir/src/main.c.o	ad0eac27b5358c15
-32	67	1761021795845831672	bin/exercise_main	849a95c7ecc6319e
-0	69	1761022092942716937	build.ninja	d1440fa9d63b3097
-0	69	1761022092941358596	/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/build/cmake.run.macosx.aarch64.Local/cmake_install.cmake	d1440fa9d63b3097
-0	69	1761022092942056433	/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/build/cmake.run.macosx.aarch64.Local/Exercise/cmake_install.cmake	d1440fa9d63b3097
-1	6	1761021687313312474	clean	7eb198a2a14a776

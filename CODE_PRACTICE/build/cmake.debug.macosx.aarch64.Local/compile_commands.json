@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/build/cmake.debug.macosx.aarch64.Local",
-  "command": "/usr/bin/cc -DDEBUG -I/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/Exercise/src -g -std=gnu11 -arch arm64 -g -gdwarf-4 -O0 -o Exercise/CMakeFiles/exercise_main.dir/src/main.c.o -c /Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/Exercise/src/main.c",
-  "file": "/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/Exercise/src/main.c",
-  "output": "/Users/sachinroy/WorkSpace/Git/Coder101/CODE_PRACTICE/build/cmake.debug.macosx.aarch64.Local/Exercise/CMakeFiles/exercise_main.dir/src/main.c.o"
-}
-]

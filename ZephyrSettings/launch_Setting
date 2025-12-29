@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Zephyr S32K344",
+      "type": "cppdbg",
+      "request": "launch", // Change "attach" to "launch" for better remote control
+      "program": "C:/Users/sachi/zephyrproject/zephyr/build/zephyr/zephyr.elf",
+      // "program": "${input:elfPath}",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/Users/sachi/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb.exe",
+      // "miDebuggerServerAddress": "remote:7224",
+      "useExtendedRemote": true,
+      "stopAtEntry": true,
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing"
+        },
+        {
+          "text": "target remote :7224"
+        },
+        {
+          "text": "monitor reset halt"
+        }, // Handled by GDB client to keep server alive
+        {
+          "text": "file C:/Users/sachi/zephyrproject/zephyr/build/zephyr/zephyr.elf"
+        },
+        {
+          "text": "load"
+        },
+        {
+          "text": "break main"
+        },
+        // {
+        //   "text": "continue"
+        // }
+      ],
+      "launchCompleteCommand": "exec-continue"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "elfPath",
+      "type": "promptString",
+      "description": "Enter the path to the ELF file",
+    }
+  ]
+}

@@ -2,6 +2,32 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "ZephyrBuild",
+      "type": "shell",
+      "command": "${workspaceFolder}/../.venv/Scripts/python.exe",
+      "args": [
+        "-m",
+        "west",
+        "build",
+        "-p",
+        "auto",
+        "-b",
+        "s32k3x4evb/s32k344",
+        "samples/basic/blinky",
+        "--",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
       "label": "start-pegdbserver",
       "type": "shell",
       "command": "powershell",
@@ -40,6 +66,13 @@
         "${workspaceFolder}/.vscode/stop_pegdbserver.ps1"
       ],
       "problemMatcher": []
+    },
+    {
+      "label": "Build + Start GDBServer",
+      "dependsOn": [
+        "ZephyrBuild",
+        "start-pegdbserver"
+      ],
     }
-  ]
+  ],
 }

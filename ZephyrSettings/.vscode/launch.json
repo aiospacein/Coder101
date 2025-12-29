@@ -11,7 +11,7 @@
       "MIMode": "gdb",
       "miDebuggerPath": "C:/Users/sachi/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb.exe",
       // "miDebuggerServerAddress": "remote:7224",
-      "preLaunchTask": "start-pegdbserver",
+      "preLaunchTask": "Build + Start GDBServer",
       "useExtendedRemote": true,
       "stopAtEntry": true,
       "setupCommands": [

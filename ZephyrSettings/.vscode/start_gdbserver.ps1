@@ -11,8 +11,7 @@ Start-Process `
     "-startserver",
     "-device=NXP_S32K3xx_S32K344",
     "-interface=USBMULTILINK",
-    "-port=USB1",
-    "-gdbport=3333" `
+    "-port=USB1" `
   -WindowStyle Hidden
 
-Write-Host "PEGDBServer started on port 3333"
+Write-Host "PEGDBServer started."

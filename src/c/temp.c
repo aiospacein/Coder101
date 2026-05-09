@@ -1,3 +1,4 @@
-char ch = '/';       
-char star = '*';     
-char combo[] = "/*"; 
+#include "stdint.h"
+#include "stdbool.h"
+
+

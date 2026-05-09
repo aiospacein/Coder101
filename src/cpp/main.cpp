@@ -1,7 +1,9 @@
 #include "stdio.h"
 #include "stdint.h"
 #include "atomic"
+#define MODULE
 
+#include <linux/module.h>
 class RegisterBit
 {
     volatile uint32_t *base;
@@ -65,23 +67,33 @@ public:
     }
 };
 
-int main()
+// int main()
+// {
+//     constexpr uint32_t BASE = 0x454545;
+//     RegisterBit Status(BASE, 5);
+//     Status.set();
+//     Status.read();
+//     Status.clear();
+
+//     auto IsSet = [Status]() mutable -> bool
+//     {
+//         bool res = Status.read();
+//         return res;
+//     };
+
+//     if (IsSet())
+//     {
+//         /* code */
+//         printf("warn:Status Bit is Set");
+//     }
+// }
+
+int init_module()
 {
-    constexpr uint32_t BASE = 0x454545;
-    RegisterBit Status(BASE, 5);
-    Status.set();
-    Status.read();
-    Status.clear();
+    printk("<1> Module INit");
+}
 
-    auto IsSet = [Status]() mutable -> bool
-    {
-        bool res = Status.read();
-        return res;
-    };
-
-    if (IsSet())
-    {
-        /* code */
-        printf("warn:Status Bit is Set");
-    }
+int exit_module()
+{
+    printk("<1> Exit Module");
 }
